@@ -34,14 +34,16 @@ app.set("trust proxy", 1);
 app.use(
   cors({
     origin: [
-      "https://admin.weblyst.in",
-      "http://localhost:5173",
-      "http://localhost:3000"
+      "https://admin.weblyst.in", // Frontend (CMS UI)
+      "https://api.weblyst.in",   // API (self-requests / tools / health checks)
+      "http://localhost:5173",   // Vite dev
+      "http://localhost:3000"    // React dev (if used)
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
   })
 );
+
 
 app.use(
   helmet({
